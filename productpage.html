@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taylor Swift Illustrated Bookmarks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="css/productpage.css" rel="stylesheet">
+
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#" class="brand">NightOwl</a>
+    <ul class="nav-links">
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#">Product</a></li>
+        <li><a href="#">Blog</a></li>
+    </ul>
+    <div class="mobile-menu-icon">☰</div>
+    <div class="mobile-menu">
+        <a href="#">HOME</a>
+        <a href="#">ABOUT</a>
+        <a href="#">Product</a>
+        <a href="#">Blog</a>
+    </div>
+</nav>
+
+
+    <div class="container">
+        <div class="product-container">
+            <div class="image-gallery">
+                <div class="thumbnails">
+                    <img src="image/Ts-illustrations/main.png" alt="Main Image" class="thumbnail active">
+                    <img src="image/Ts-illustrations/1.png" alt="Thumbnail 1" class="thumbnail">
+                    <img src="image/Ts-illustrations/2.png" alt="Thumbnail 2" class="thumbnail">
+                    <img src="image/Ts-illustrations/3.png" alt="Thumbnail 3" class="thumbnail">
+                    <img src="image/Ts-illustrations/4.png" alt="Thumbnail 4" class="thumbnail">
+                    <img src="image/Ts-illustrations/5.png" alt="Thumbnail 5" class="thumbnail">
+                </div>
+                <div class="main-image-container">
+                    <img src="image/Ts-illustrations/main.png" alt="Main Product Image" class="main-image">
+                    <a href="#" class="prev">&lt;</a>
+                    <a href="#" class="next">&gt;</a>
+                </div>
+            </div>
+            <div class="product-info">
+                <h1>Relive the Magic – Taylor Swift Illustrated Bookmarks</h1>
+                <p class="price">$2.99 (Tax Included)</p>
+                <button class="btn btn-primary">Pay with Razorpay</button>
+                <button class="btn btn-warning">Pay with PayPal</button>
+                <h2>Item details</h2>
+                <ul>
+                    <li>Designed by NightOwl</li>
+                    <li>Digital download</li>
+                    <li>Set of 5 Illustrated Bookmarks</li>
+                    <li>Width: 2.5 inches</li>
+                    <li>Height: 4.5 inches</li>
+                </ul>
+                <h2>About this item</h2>
+                <p id="description">
+                    Capture Taylor Swift's Illustrations and bookmarks.<br> Each features unique artwork from Taylor's most loved albums & looks, letting you carry fond memories of Taylor's music.<br> Includes a tassel version, which allows you to customise and add tassels to your favourite bookmarks.
+                    <span id="more-details" style="display: none;">
+                        Includes a tassel version: Allows you to customise and add tassels to your favourite bookmarks.<br>
+                        Exclusive Illustrations: Designs inspired by Taylor Swift's albums designs by fans<br>
+                        High-Quality Craftsmanship: Created from a curated collection of Taylor Swift albums<br>
+                        Memorable Keepsake: Unique way to keep your favorite Taylor Swift bookmark with you
+                    </span>
+                </p>
+                <button id="toggle-details" class="btn">More</button>
+            </div>
+        </div>
+        <div class="reviews-delivery">
+            <div class="reviews">
+                <h2>Reviews</h2>
+                <p class="star-rating">★★★★★ 416 reviews</p>
+                <div id="review-list">
+                    <div class="review">
+                        <p class="star-rating">★★★★★</p>
+                        <p>Love love love the item, fantastic</p>
+                        <p><small>Heather Kenison - 15 May, 2023</small></p>
+                    </div>
+                    <div class="review">
+                        <p class="star-rating">★★★★★</p>
+                        <p>lovely. they printed out very colorful. I was able to use them on the edge of my pages as side borders and I really love it</p>
+                        <p><small>Another Customer - 14 May, 2023</small></p>
+                    </div>
+                </div>
+                <button id="show-more-reviews" class="btn">Show More Reviews</button>
+                <div class="review-form">
+                    <h3>Add a Review</h3>
+                    <form id="new-review-form">
+                        <input type="text" id="review-name" placeholder="Your Name" required>
+                        <input type="number" id="review-rating" min="1" max="5" placeholder="Rating (1-5)" required>
+                        <textarea id="review-text" placeholder="Your Review" required></textarea>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                </div>
+            </div>
+            <div class="delivery">
+              <h2>Instant Download</h2>
+              <p>Your files will be available to download once payment is confirmed. <a href="#">Here's how</a>.</p>
+              <p>Instant download items don't accept returns, exchanges, or cancellations. Please contact the seller about any problems with your order.</p>
+              
+              <h3>Follow Us on Social Media</h3>
+              <p>Stay connected and follow us on:</p>
+              <ul>
+                  <li><a href="https://www.pinterest.com/NightOwl01" target="_blank">Pinterest</a></li>
+                  <li><a href="https://www.instagram.com/NightOwl01" target="_blank">Instagram</a></li>
+                  <li><a href="https://www.facebook.com/NightOwl01" target="_blank">Facebook</a></li>
+              </ul>
+              
+              <p>If you love this product, share it with your friends! Post about it on <a href="https://www.instagram.com" target="_blank">Instagram</a> and tag us!</p>
+              
+              <button class="btn">View additional shop policies</button>
+          </div>
+          
+        </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    const mainImage = document.querySelector('.main-image');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    const fullPageView = document.querySelector('.full-page-view');
+    const fullPageImage = document.querySelector('.full-page-image');
+    const closeBtn = document.querySelector('.close-btn');
+    const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const toggleDetailsBtn = document.getElementById('toggle-details');
+    const moreDetails = document.getElementById('more-details');
+    
+    let currentIndex = 0;
+
+    function updateMainImage(index) {
+        mainImage.src = thumbnails[index].src;
+        thumbnails.forEach(thumb => thumb.classList.remove('active'));
+        thumbnails[index].classList.add('active');
+        currentIndex = index;
+    }
+
+    thumbnails.forEach((thumbnail, index) => {
+        thumbnail.addEventListener('click', () => updateMainImage(index));
+    });
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+        updateMainImage(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % thumbnails.length;
+        updateMainImage(currentIndex);
+    });
+
+    // Full page view
+    mainImage.addEventListener('click', () => {
+        fullPageImage.src = mainImage.src;
+        fullPageView.style.display = 'block';
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            fullPageView.style.display = 'none';
+        });
+    }
+
+    // Toggle more details
+    toggleDetailsBtn.addEventListener('click', function() {
+        if (moreDetails.style.display === 'none') {
+            moreDetails.style.display = 'inline';  // Show hidden content
+            toggleDetailsBtn.textContent = 'Less'; // Change button text
+        } else {
+            moreDetails.style.display = 'none';   // Hide content
+            toggleDetailsBtn.textContent = 'More'; // Revert button text
+        }
+    });
+
+    // Mobile menu toggle
+    if (mobileMenuIcon && mobileMenu) {
+        mobileMenuIcon.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            console.log('Mobile menu toggled'); // Debugging info
+        });
+    } else {
+        console.error('Mobile menu elements not found');
+    }
+});
+
+
+  </script>
+  
+    </body>
+    </html>
