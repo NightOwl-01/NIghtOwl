@@ -1,0 +1,176 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Poppins', sans-serif; /* Updated Font Family */
+}
+
+/* Particles Section (Blue Background) */
+#particles-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full height */
+    background-color: #0d1b42; /* Dark blue background */
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Fullscreen Particles */
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;   /* Full width */
+    height: 100vh; /* Full height */
+    z-index: 1;    /* Ensure particles are in the background */
+}
+
+/* Navbar with White Line */
+.navbar {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background: transparent;
+    z-index: 10;
+    border-bottom: 2px solid white; 
+}
+
+.navbar .logo a {
+    color: orange;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.navbar .nav-links ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.navbar .nav-links ul li {
+    margin-right: 20px;
+}
+
+.navbar .nav-links ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.navbar .nav-links ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Register Button */
+.register-btn {
+    background-color: orange;
+    padding: 8px 20px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+.register-btn:hover {
+    background-color: darkorange;
+}
+
+/* Hamburger menu (for mobile view) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+}
+
+/* Mobile Navbar Toggle */
+@media (max-width: 768px) {
+    .nav-links ul {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: none;
+    }
+
+    .nav-links.active ul {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* Main Heading and Subheading inside Particles Section */
+.particles-content {
+    position: relative;
+    z-index: 2;  /* Ensure text stays above particles */
+    color: white;
+}
+
+.particles-content h1 {
+    font-size: 60px;
+    font-family: 'Cinzel', serif; 
+    color: rgb(245, 203, 223);
+}
+
+.particles-content p {
+    font-size: 20px;
+    color: #fde0f6;
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+.content-section {
+    padding: 50px;
+    background-color: #fff5ec; /* Cream background */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+}
+
+.text-content h1 {
+    font-size: 48px;
+    color: orange;
+    font-family: 'Cinzel', serif; /* Updated Font Family */
+}
+
+/* Image Section */
+.image-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive Design for Content Section */
+@media (max-width: 768px) {
+    .content-section {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .text-content h1 {
+        font-size: 36px;
+    }
+}
