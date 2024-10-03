@@ -10,9 +10,16 @@
 </head>
 <body>
     <div id="particles-section">
+        
+
         <nav class="navbar">
             <div class="logo">
-                <img src="image/logo.png" style="background-color: whitesmoke;"/>
+                <img src="image/logo.png" style="background-color: whitesmoke;" />
+            </div>
+            <div class="hamburger" id="hamburger" aria-label="Toggle navigation" data-open="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
             <div class="nav-links" id="nav-links">
                 <ul>
@@ -23,12 +30,8 @@
                     <li><a href="#" class="register-btn">Register</a></li>
                 </ul>
             </div>
-            <div class="hamburger" onclick="toggleMenu()">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
         </nav>
+        
 
         <div id="starry-background"></div>
 
@@ -48,7 +51,7 @@
     </div>
     <div class="products-section">
         <h2>Our Products</h2>
-        <div class="product-slider">
+        <div class="product-grid">
             <div class="product-card">
                 <img src="path-to-product-image-1.jpg" alt="Product 1">
                 <h3>Product 1</h3>
@@ -72,7 +75,20 @@
         </div>
     </div>
     
+    
 
-    <script src="js/scripts.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', function () {
+        const isOpen = hamburger.getAttribute('data-open') === 'true';
+        hamburger.setAttribute('data-open', !isOpen);
+        navLinks.classList.toggle('active'); 
+    });
+});
+
+    </script>
 </body>
 </html>

@@ -25,58 +25,88 @@ body, html {
     overflow: hidden;
 }
 
-/* Starry Background Image */
+
 #starry-background {
     position: absolute;
-    margin-top: 25%;
     left: 0;
+    top: 0;
     width: 100%;
-    height: 100%;
-    background-image: url('/nightowl/image/stary.png'); /* Replace with your starry image path */
+    height: 100vh;
+    background-image: url('/nightowl/image/stary.png');
     background-size: cover;
     background-position: center;
-    opacity: 0.8; /* Adjust opacity to your preference */
+    opacity: 0.8;
     z-index: 1;
 }
 
-/* Navbar with White Line */
+/* Ensure starry background works on mobile */
+@media (max-width: 768px) {
+    #starry-background {
+        background-size: cover; 
+        height: 100vh; 
+    }
+}
+
+
 .navbar {
-    width: 100%;
-    position: absolute;
-    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 30px;
-    background: transparent;
-    z-index: 10;
+    background: #0d1b42;
     border-bottom: 2px solid white;
+    z-index: 10;
+    
+    position:fixed;
+    width: 100%;
+    top: 0;
 }
 
-.navbar .logo a {
-    color: orange;
-    font-size: 24px;
-    text-decoration: none;
-    font-family: 'Cooper Black Regular', serif;
+/* Hamburger styling */
+.hamburger {
+    display: none; /* Hidden by default for large screens */
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 15;
 }
 
-.navbar .nav-links ul {
-    list-style-type: none;
+.hamburger .bar {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger[data-open="true"] .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger[data-open="true"] .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger[data-open="true"] .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Nav Links */
+.nav-links ul {
+    list-style: none;
     display: flex;
 }
 
-.navbar .nav-links ul li {
+.nav-links ul li {
     margin-right: 20px;
 }
 
-.navbar .nav-links ul li a {
+.nav-links ul li a {
     color: white;
     text-decoration: none;
     font-size: 18px;
-    font-family: 'Futura LtCn BT', sans-serif;
 }
 
-.navbar .nav-links ul li a:hover {
+.nav-links ul li a:hover {
     text-decoration: underline;
 }
 
@@ -87,47 +117,42 @@ body, html {
     border-radius: 5px;
     color: white;
     text-decoration: none;
-    font-family: 'Futura LtCn BT', sans-serif;
 }
 
 .register-btn:hover {
     background-color: darkorange;
 }
 
-/* Hamburger menu (for mobile view) */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.hamburger .bar {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 4px 0;
-}
-
-/* Mobile Navbar Toggle */
+/* Responsive Hamburger Menu */
 @media (max-width: 768px) {
-    .nav-links ul {
-        flex-direction: column;
+    .hamburger {
+        display: flex; /* Show hamburger menu on mobile */
+    }
+
+    .nav-links {
         position: absolute;
         top: 60px;
         right: 0;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        display: none;
+        background-color: rgba(0, 0, 0, 0.9); /* Background for the mobile menu */
+        display: none; /* Hide by default */
+        flex-direction: column;
+        text-align: center;
     }
 
-    .nav-links.active ul {
-        display: flex;
+    .nav-links ul {
+        flex-direction: column;
     }
 
-    .hamburger {
-        display: flex;
+    .nav-links ul li {
+        margin: 15px 0;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show menu when active */
     }
 }
+
 
 .particles-content {
     position: relative;
@@ -180,41 +205,67 @@ body, html {
         font-size: 36px;
     }
 }
-.products-section {
-    text-align: center;
-    padding: 50px;
-    background-color: #fff5ec; /* Same background as the section */
-    position: relative;
-}
+
+
 
 .products-section h2 {
     font-family: 'Cooper Black Regular', serif;
     font-size: 36px;
     color: #222;
+    margin-bottom: 30px;
 }
 
-.product-slider {
-    display: flex;
-    overflow-x: scroll;
-    justify-content: space-around;
-    padding: 20px 0;
+/* Product Section */
+.products-section {
+    text-align: center;
+    padding: 50px;
+    background-color: #fff5ec;
+    position: relative; /* Required for the triangle to position */
 }
 
+/* Grid for larger screens and single-column for mobile */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for large screens */
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Add a pink triangle at the bottom of the product grid */
+.products-section::after {
+    content: '';
+    position: absolute;
+    bottom: 100%; /* Position the triangle above the grid */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent; /* Half of triangle width */
+    border-right: 50px solid transparent; /* Half of triangle width */
+    border-bottom: 50px solid pink; /* Creates the upward triangle */
+    box-shadow: 0 -4px 15px rgba(255, 105, 180, 0.6); /* Pink shadow above triangle */
+}
+
+/* Product card styling */
 .product-card {
     background-color: white;
     border-radius: 15px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    margin: 0 10px;
-    flex: 0 0 calc(50% - 20px);
+    width: 100%; /* Set width of the card */
+    max-width: 500px;
+    height: 500px;
     text-align: center;
     padding: 20px;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .product-card img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 .product-card h3 {
@@ -229,29 +280,13 @@ body, html {
     color: #777;
 }
 
-@media screen and (max-width: 768px) {
-    .product-card {
-        flex: 0 0 calc(100% - 20px);
+/* Mobile and Tablet view */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* 1 column for small screens */
     }
-}
-
-/* Triangle and shadow for bottom right corner */
-.triangle {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100px;
-    height: 100px;
-    background-color: #6A5ACD;
-    clip-path: polygon(100% 0, 0 100%, 100% 100%);
-}
-
-.triangle-shadow {
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    width: 100px;
-    height: 100px;
-    background-color: rgba(255, 182, 193, 0.8); /* Pink shadow effect */
-    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    
+    .product-card {
+        width: 100%; /* Full width for mobile */
+    }
 }
