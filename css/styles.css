@@ -4,10 +4,26 @@
     padding: 0;
     box-sizing: border-box;
 }
+@font-face {
+    font-family: 'futura'; /* Name your font family */
+    src: url('../fonts/futuraltcnbt-italic.ttf'); 
 
+  }
+  @font-face {
+    font-family: 'tan';
+    src: url('../fonts/TAN-PARADISO.ttf');
+  }
+  @font-face{
+    font-family: 'futura-bold';
+    src: url('../fonts/futuralightcondensedbt.ttf');
+  }
+  @font-face{
+    font-family: 'copper';
+    src: url('../fonts/CooperBlack-Std.otf');
+  }
 body, html {
     height: 100%;
-    font-family: 'Futura LtCn BT', sans-serif;
+    font-family: 'futura', sans-serif;
 }
 
 /* Particles Section (Blue Background with Starry Image) */
@@ -32,7 +48,7 @@ body, html {
     top: 0;
     width: 100%;
     height: 100vh;
-    background-image: url('/nightowl/image/stary.png');
+    /* background-image: url('/image/stary.png'); */
     background-size: cover;
     background-position: center;
     opacity: 0.8;
@@ -56,16 +72,18 @@ body, html {
     background: #0d1b42;
     border-bottom: 2px solid white;
     z-index: 10;
-    
+    font-family: 'futura-bold';
+    font-size:18px;
     position:fixed;
     width: 100%;
     top: 0;
 }
 
-/* Hamburger styling */
+
 .hamburger {
-    display: none; /* Hidden by default for large screens */
+    display: none; 
     flex-direction: column;
+    font-family: 'copper';
     cursor: pointer;
     z-index: 15;
 }
@@ -161,16 +179,16 @@ body, html {
 }
 
 .particles-content h1 {
-    font-size: 60px;
-    font-family: 'Tan Paradiso', serif;
+    font-size: 70px;
+    font-family: 'tan', serif;
     color: rgb(245, 203, 223);
 }
 
 .particles-content p {
-    font-size: 20px;
+    font-size: 50px;
     color: #fde0f6;
     margin-top: 10px;
-    font-family: 'Futura LtCn BT', sans-serif;
+    font-family: 'futura-bold';
     text-align: center;
 }
 
@@ -184,9 +202,10 @@ body, html {
 }
 
 .text-content h1 {
-    font-size: 48px;
+    align-items: center;
+    font-size: 60px;
     color: orange;
-    font-family: 'Cooper Black Regular', serif;
+    font-family: 'tan', serif;
 }
 
 .image-content img {
@@ -223,7 +242,7 @@ body, html {
     position: relative; /* Required for the triangle to position */
 }
 
-/* Grid for larger screens and single-column for mobile */
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columns for large screens */
@@ -231,27 +250,13 @@ body, html {
     justify-items: center;
 }
 
-/* Add a pink triangle at the bottom of the product grid */
-.products-section::after {
-    content: '';
-    position: absolute;
-    bottom: 100%; /* Position the triangle above the grid */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent; /* Half of triangle width */
-    border-right: 50px solid transparent; /* Half of triangle width */
-    border-bottom: 50px solid pink; /* Creates the upward triangle */
-    box-shadow: 0 -4px 15px rgba(255, 105, 180, 0.6); /* Pink shadow above triangle */
-}
 
-/* Product card styling */
+
 .product-card {
     background-color: white;
     border-radius: 15px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Set width of the card */
+    width: 100%;
     max-width: 500px;
     height: 500px;
     text-align: center;
@@ -269,13 +274,13 @@ body, html {
 }
 
 .product-card h3 {
-    font-family: 'Futura LtCn BT', sans-serif;
+    font-family: 'futura', sans-serif;
     font-size: 24px;
     margin-top: 15px;
 }
 
 .product-card p {
-    font-family: 'Futura LtCn BT', sans-serif;
+    font-family: 'futura', sans-serif;
     font-size: 16px;
     color: #777;
 }
