@@ -73,7 +73,7 @@ body, html {
     border-bottom: 2px solid white;
     z-index: 10;
     font-family: 'futura-bold';
-    font-size:18px;
+    
     position:fixed;
     width: 100%;
     top: 0;
@@ -112,10 +112,13 @@ body, html {
 .nav-links ul {
     list-style: none;
     display: flex;
+   
 }
 
 .nav-links ul li {
     margin-right: 20px;
+    font-size:30px;
+    font-weight: 100;
 }
 
 .nav-links ul li a {
@@ -237,52 +240,87 @@ body, html {
 .products-section {
     text-align: center;
     padding: 50px;
-    background-color: #fff5ec;
+    background-color: #fce7d6;
     position: relative; /* Required for the triangle to position */
+}
+.products-section h1{
+    color:rgb(46, 46, 77);
+    font-family: 'copper';
+    font-size:50px ;
+    font-weight: 200;
+    margin-bottom: 40px;
 }
 
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for large screens */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 20px;
     justify-items: center;
 }
 
 
-
 .product-card {
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
-    height: 500px;
-    text-align: center;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    background-color: #f4f4f4; 
+      border-radius: 10px;
+      height: 600px;
+      width:500px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease, background 0.3s ease;
+      cursor: pointer;
+      color:black;
+    
+  }
+
+  .product-card:hover {
+      background: linear-gradient(135deg, black, white);
+      transform: translateY(-5px);
+  }
+
+  .product-card img {
+      width: 100%;
+      height: 470px;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+  }
+  .product-card:hover img {
+filter: blur(5px); 
+opacity: 0.8; 
+}
+  .product-card h2 {
+      position: relative;
+      z-index: 2;
+      color: #ff9aba;
+      font-family: 'futura';
+      font-size: 30px;
+      margin: 1rem;
+  }
+  .buy-now-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 70%;
+    transform: translateX(-50%);
+    background-color: #4463ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+    transition: background 0.3s ease;
+    z-index: 2;
 }
 
-.product-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 15px;
+.product-card:hover .buy-now-btn {
+    display: block;
 }
 
-.product-card h3 {
-    font-family: 'futura', sans-serif;
-    font-size: 24px;
-    margin-top: 15px;
+.buy-now-btn:hover {
+    background-color: #0056b3;
 }
 
-.product-card p {
-    font-family: 'futura', sans-serif;
-    font-size: 16px;
-    color: #777;
-}
 
 /* Mobile and Tablet view */
 @media (max-width: 768px) {
@@ -293,4 +331,96 @@ body, html {
     .product-card {
         width: 100%; /* Full width for mobile */
     }
+}
+.story-section {
+    background: #ff6f00;
+    position: relative;
+    padding: 50px 0;
+    text-align: center;
+    height:90vh;
+}
+
+.story-section h1 {
+    color:rgb(46, 46, 77);
+    font-family: 'copper';
+    font-size:50px ;
+    font-weight: 200;
+}
+
+.triangle-shape {
+    position: absolute;
+    top: -30px;
+    right: 50px;
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 100px solid #8f00ff; 
+}
+
+.triangle-shape::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -60px;
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 60px solid #ff6f61; 
+}
+@media (max-width: 768px) {
+    .triangle-shape {
+        display: none;
+    }
+}
+
+.newsletter-section {
+    background-color: #a8b4ff;
+    padding: 40px 0;
+    text-align: center;
+    font-family: 'Poppins', sans-serif; /* Use the fonts you're using */
+}
+
+.newsletter-section h2 {
+    color: #000; 
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.newsletter-section p {
+    color: #333; 
+    margin-bottom: 20px;
+}
+
+.newsletter-form {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsletter-form input {
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    width: 300px;
+    font-size: 1rem;
+}
+
+.newsletter-form button {
+    padding: 10px 20px;
+    border-radius: 0 5px 5px 0;
+    border: none;
+    background-color: #333; /* Black button */
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.newsletter-form input:focus {
+    outline: none;
+}
+
+.newsletter-form button:hover {
+    background-color: #000; 
 }
