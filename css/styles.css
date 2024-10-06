@@ -202,7 +202,6 @@ body, html {
 }
 
 .text-content h1 {
-    align-items: center;
     font-size: 60px;
     color: orange;
     font-family: 'tan', serif;
