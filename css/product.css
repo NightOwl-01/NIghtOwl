@@ -36,9 +36,8 @@
     background: #0d1b42;
     border-bottom: 2px solid white;
     z-index: 10;
-    font-family: 'futura-bold';
-    
-    position: fixed;
+    font-family: 'futura';
+       position: fixed;
     width: 100%;
     top: 0;
     height: 80px; 
@@ -53,7 +52,7 @@
 
 .nav-links ul li {
     margin-right: 20px;
-    font-size: 25px;
+    font-size: 18px;
     font-weight: 200;
 }
 
